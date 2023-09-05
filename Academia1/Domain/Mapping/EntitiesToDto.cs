@@ -14,7 +14,7 @@ namespace Domain.Mapping
         public EntitiesToDto()
         {
             
-            CreateMap<Aluno, AlunoDto>();
+            CreateMap<Aluno, AlunoDto>().ReverseMap();
         }
     }
 }

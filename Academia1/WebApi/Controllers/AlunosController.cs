@@ -28,9 +28,9 @@ namespace WebApi.Controllers
 
 
         [HttpPost("Register")]
-        public async Task<IActionResult> Register(Aluno aluno)
+        public async Task<IActionResult> Register(AlunoDto alunodto)
         {
-           
+            var aluno = _mapper.Map<Aluno>(alunodto);
             await _aluno.Insert(aluno);
             return Ok("Aluno registrado com sucesso!");
         }
