@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Data.Contexto.Migrations
+namespace DataContexto.Migrations
 {
     [DbContext(typeof(DataContext))]
     partial class DataContextModelSnapshot : ModelSnapshot
@@ -21,6 +21,33 @@ namespace Data.Contexto.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("Domain.Entities.Aluno", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Cpf")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<int>("IdCursos")
+                        .HasColumnType("int")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdCursos");
+
+                    b.ToTable("ALUNOS", (string)null);
+                });
 
             modelBuilder.Entity("Domain.Entities.Cursos", b =>
                 {
@@ -51,6 +78,17 @@ namespace Data.Contexto.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("CURSOS", (string)null);
+                });
+
+            modelBuilder.Entity("Domain.Entities.Aluno", b =>
+                {
+                    b.HasOne("Domain.Entities.Cursos", "Cursos")
+                        .WithMany()
+                        .HasForeignKey("IdCursos")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cursos");
                 });
 #pragma warning restore 612, 618
         }

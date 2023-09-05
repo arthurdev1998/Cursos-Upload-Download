@@ -1,4 +1,5 @@
 ﻿using Data.Contexto.DataConfig;
+using DataContexto.DataConfig;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -16,6 +17,7 @@ namespace Data.Contexto.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Cursos>(new CursosConfiguration().Configure);
+            modelBuilder.Entity<Aluno>(new AlunoConfiguration().Configure);
             base.OnModelCreating(modelBuilder);
         }
 

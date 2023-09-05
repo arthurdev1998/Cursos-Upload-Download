@@ -16,7 +16,7 @@ namespace Repositories.Base
         private readonly DataContext _dataContext;
 
 
-        public BaseRepository(DataContext dataContext) 
+        public BaseRepository(DataContext dataContext)
         {
             _dataContext = dataContext;
         }
@@ -34,16 +34,25 @@ namespace Repositories.Base
 
         public async Task<T> GetById(int id)
         {
+            if (id <= 0)
+            {
+               throw new ArgumentException("O Id deve ser maior que zero.", nameof(id));
+            }
+
             return await _dataContext.Set<T>().FindAsync(id);
         }
 
         public async Task Insert(T entity)
         {
+            if (entity == null)
+            {
+                throw new ArgumentNullException("O campo nao pode ser nulo.");
+            }
             await _dataContext.Set<T>().AddAsync(entity);
             await _dataContext.SaveChangesAsync();
         }
 
-        public async Task Update(int id,T entity)
+        public async Task Update(int id, T entity)
         {
             _dataContext.Set<T>().Update(entity);
             await _dataContext.SaveChangesAsync();

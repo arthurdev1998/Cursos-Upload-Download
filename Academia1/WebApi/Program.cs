@@ -1,4 +1,6 @@
 using Data.Contexto.Context;
+using Domain.Entities;
+using Domain.Mapping;
 using Microsoft.EntityFrameworkCore;
 using Repositories.Interfaces;
 using Repositories.Repository;
@@ -18,9 +20,14 @@ builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(stringConnection)
 
 // UTILIZACAO DOS OBJETOS <REPOSITORY>
 
+builder.Services.AddScoped<AlunoRepository>();
 builder.Services.AddScoped<ICursoRepository, CursoRepository>();
+builder.Services.AddScoped<IAlunoRepository, AlunoRepository>();
 builder.Services.AddTransient<IManageImage, ManageImage>();
 
+// AUTOMAPPER
+
+builder.Services.AddAutoMapper(typeof(EntitiesToDto));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

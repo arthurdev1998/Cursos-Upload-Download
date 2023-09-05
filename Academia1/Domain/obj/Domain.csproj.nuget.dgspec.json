@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Arthur\\source\\repos\\NewRepo\\Academia1\\Domain\\Domain.csproj": {}
+    "C:\\Users\\Arthur\\Desktop\\DotnetProject2\\Cursos-Upload-Download\\Academia1\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Arthur\\source\\repos\\NewRepo\\Academia1\\Domain\\Domain.csproj": {
+    "C:\\Users\\Arthur\\Desktop\\DotnetProject2\\Cursos-Upload-Download\\Academia1\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Arthur\\source\\repos\\NewRepo\\Academia1\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Arthur\\Desktop\\DotnetProject2\\Cursos-Upload-Download\\Academia1\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Arthur\\source\\repos\\NewRepo\\Academia1\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\Arthur\\Desktop\\DotnetProject2\\Cursos-Upload-Download\\Academia1\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Arthur\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Arthur\\source\\repos\\NewRepo\\Academia1\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\Arthur\\Desktop\\DotnetProject2\\Cursos-Upload-Download\\Academia1\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -42,6 +42,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
